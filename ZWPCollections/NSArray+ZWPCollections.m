@@ -2,7 +2,7 @@
 
 @implementation NSArray (ZWPCollections)
 
-- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id obj, NSInteger idx, BOOL *stop))block {
+- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))block {
     NSParameterAssert(block);
     NSMutableArray *a = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -12,7 +12,7 @@
     }];
     return [a copy];
 }
-- (NSArray *)mappedArrayUsingBlock:(id (^)(id obj, NSInteger idx, BOOL *stop))block {
+- (NSArray *)mappedArrayUsingBlock:(id (^)(id obj, NSUInteger idx, BOOL *stop))block {
     NSParameterAssert(block);
     NSMutableArray *a = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
