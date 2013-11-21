@@ -2,7 +2,7 @@
 
 @implementation NSOrderedSet (ZWPCollections)
 
-- (NSOrderedSet *)filteredOrderedSetUsingBlock:(BOOL (^)(id obj, NSInteger idx, BOOL *stop))block {
+- (NSOrderedSet *)filteredOrderedSetUsingBlock:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))block {
     NSParameterAssert(block);
     NSMutableOrderedSet *s = [NSMutableOrderedSet orderedSetWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -12,7 +12,7 @@
     }];
     return [s copy];
 }
-- (NSOrderedSet *)mappedOrderedSetUsingBlock:(id (^)(id obj, NSInteger idx, BOOL *stop))block {
+- (NSOrderedSet *)mappedOrderedSetUsingBlock:(id (^)(id obj, NSUInteger idx, BOOL *stop))block {
     NSParameterAssert(block);
     NSMutableOrderedSet *s = [NSMutableOrderedSet orderedSetWithCapacity:self.count];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
